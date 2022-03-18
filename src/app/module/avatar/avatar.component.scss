@@ -1,0 +1,26 @@
+app-avatar {
+  * {
+    fontfamily: consolas;
+  }
+
+  .circle {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .logo {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: url(../../../assets/img/dog.jpeg);
+    background-size: cover;
+    border-radius: 50%;
+    filter: brightness(1.5) contrast(1.5);
+  }
+}
