@@ -26,7 +26,7 @@ export class AvatarComponent implements OnInit, AfterViewInit {
         .split('')
         .map(
           (char: string, i: number) =>
-            `<span style="transform:rotate(${i * 13}deg)">${char}</span>`
+            `<span style="transform:rotate(${i * 9}deg)">${char}</span>`
         )
         .join('');
   }
