@@ -1,5 +1,11 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core';
 
 @Component({
   selector: 'app-avatar',
@@ -7,12 +13,21 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
   styleUrls: ['./avatar.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class AvatarComponent implements OnInit {
+export class AvatarComponent implements OnInit, AfterViewInit {
+  @ViewChild('text') avatarText: ElementRef;
 
-  constructor() {
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  ngAfterViewInit(): void {
+    this.avatarText.nativeElement.innerHTML =
+      this.avatarText.nativeElement.innerText
+        .split('')
+        .map(
+          (char: string, i: number) =>
+            `<span style="transform:rotate(${i * 13}deg)">${char}</span>`
+        )
+        .join('');
   }
-
-  ngOnInit(): void {
-  }
-
 }
